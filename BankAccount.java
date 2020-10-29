@@ -4,9 +4,9 @@ public class BankAccount{
   private int accountID;
   private String password;
 
-  public BankAccount(int a, String p)
+  public BankAccount(int id, String p)
     {
-      accountID = a;
+      accountID = id;
       password = p;
       balance = 0;
     }
@@ -33,7 +33,7 @@ public class BankAccount{
 
   public boolean deposit(double amount)
     {
-      if (amount < 0)
+      if (amount < 0 || balance - amount < 0)
         return false;
       else
         balance += amount;
