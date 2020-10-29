@@ -13,7 +13,7 @@ public class BankAccount{
 
   public String toString()
     {
-      System.out.println("Account" \t balance);
+      return(accountID + "\t" + balance);
     }
 
   public double getBalance()
@@ -33,7 +33,7 @@ public class BankAccount{
 
   public boolean deposit(double amount)
     {
-      if (amount < 0 || balance - amount < 0)
+      if (amount < 0)
         return false;
       else
         balance += amount;
@@ -42,6 +42,10 @@ public class BankAccount{
 
   public boolean withdraw(double amount)
     {
-      ~~
+      if (amount < 0 || balance - amount < 0)
+        return false;
+      else
+        balance -= amount;
+        return true;
     }
 }
