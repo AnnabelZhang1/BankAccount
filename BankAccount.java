@@ -13,7 +13,7 @@ public class BankAccount{
 
   public String toString()
     {
-      return(accountID + "\t" + balance);
+      return "#" + accountID + "\t$" + balance;
     }
 
   public double getBalance()
@@ -48,4 +48,23 @@ public class BankAccount{
         balance -= amount;
         return true;
     }
+
+//10-29-2020
+  private boolean authenticate(String p)
+    {
+      return this.password.equals(password);
+    }
+
+  public boolean transferTo(BankAccount other, double amount, String p)
+    {
+      if (authenticate(p) && withdraw(amount))
+        {
+          if(other.deposit(amount))
+              return true;
+          else
+              System.out.println("CRITICAL ERROR");
+        }
+      return false;
+    }
+
 }
