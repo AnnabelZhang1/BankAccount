@@ -115,9 +115,9 @@ public class Tester {
     }
 
     for (int index = 0; index < accountIDs.length; index++) {
-      BankAccount account = new BankAccount(accountIDs[index], " ");
+      BankAccount account = new BankAccount(accountIDs[index], "\t");
       account.deposit(accountBalances[index]);
-      String expectedString = accountIDs[index] + " " + accountBalances[index];
+      String expectedString = accountIDs[index] + "\t" + accountBalances[index];
       if (expectedString.equals(account.toString())) {
         System.out.println("toString function succeeded.");
       } else {
