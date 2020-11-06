@@ -50,21 +50,17 @@ public class BankAccount{
     }
 
 //10-29-2020
-  private boolean authenticate(String p)
+  private boolean authenticate(String password)
     {
       return this.password.equals(password);
     }
 
-  public boolean transferTo(BankAccount other, double amount, String p)
+  public boolean transferTo(BankAccount other, double amount, String password)
     {
-      if (authenticate(p) && withdraw(amount))
-        {
-          if(other.deposit(amount))
-              return true;
-          else
-              System.out.println("CRITICAL ERROR");
-        }
-      return false;
+      if (authenticate(password) && this.withdraw(amount) && other.deposit(amount))
+        return true;
+      else
+        return false;
     }
 
 }
